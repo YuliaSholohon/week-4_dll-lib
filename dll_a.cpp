@@ -8,7 +8,7 @@
 using namespace std;
 void invert(stack_ptr,int);
 int main() {
-	stack_ptr stackPtr = NULL; /*Вказівник на вершину*/
+	stack_ptr stackPtr = NULL; /*Р’РєР°Р·С–РІРЅРёРє РЅР° РІРµСЂС€РёРЅСѓ*/
 	int choice, value;
 	int n=0;
 	instructions();
@@ -16,25 +16,25 @@ int main() {
 	cin>>choice;
 	while (choice !=6) {
 		switch (choice) {
-		case 1: /*Занесення значення в стек*/ 
+		case 1: /*Р—Р°РЅРµСЃРµРЅРЅСЏ Р·РЅР°С‡РµРЅРЅСЏ РІ СЃС‚РµРє*/ 
 			cout<<"Enter an integer: ";
 			cin>> value;
 			push (&stackPtr, value);
 			n++;
 			printStack (stackPtr);
 			break;
-		case 2: /*Видалення значення із стеку*/
+		case 2: /*Р’РёРґР°Р»РµРЅРЅСЏ Р·РЅР°С‡РµРЅРЅСЏ С–Р· СЃС‚РµРєСѓ*/
 			if (!isEmpty(stackPtr))
 				cout<<"The popped value is "<< pop(&stackPtr)<<endl; 
 			n--;
 			printStack(stackPtr);
 			break;
-		case 3: /*Видалення значення із стеку*/
+		case 3: /*Р’РёРґР°Р»РµРЅРЅСЏ Р·РЅР°С‡РµРЅРЅСЏ С–Р· СЃС‚РµРєСѓ*/
 			if (!isEmpty(stackPtr))
 				cout<<"The peak "<< peak(&stackPtr)<<endl; ;
 			printStack(stackPtr);
 			break;
-		case 4: /*Видалення значення із стеку*/
+		case 4: /*Р’РёРґР°Р»РµРЅРЅСЏ Р·РЅР°С‡РµРЅРЅСЏ С–Р· СЃС‚РµРєСѓ*/
 			del(&stackPtr);
 			printStack(stackPtr);
 			break;
