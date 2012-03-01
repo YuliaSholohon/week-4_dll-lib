@@ -9,8 +9,8 @@
 #include <stdio.h>
 #include <conio.h>
 #define MAXMODULE 50
-struct stackNode {/*структура, що посилається на себе*/
-int data;//дані що заносяться у стек, *nextPtr вказівник на наступний елемент списку
+struct stackNode {/*СЃС‚СЂСѓРєС‚СѓСЂР°, С‰Рѕ РїРѕСЃРёР»Р°С”С‚СЊСЃСЏ РЅР° СЃРµР±Рµ*/
+int data;//РґР°РЅС– С‰Рѕ Р·Р°РЅРѕСЃСЏС‚СЊСЃСЏ Сѓ СЃС‚РµРє, *nextPtr РІРєР°Р·С–РІРЅРёРє РЅР° РЅР°СЃС‚СѓРїРЅРёР№ РµР»РµРјРµРЅС‚ СЃРїРёСЃРєСѓ
 struct stackNode *nextPtr;
 	};
 typedef struct stackNode node;
@@ -54,7 +54,7 @@ void main()
 		FreeLibrary((HMODULE)hLib);
 		return;
 	}
-	stack_ptr stackPtr = NULL; /*Вказівник на вершину*/
+	stack_ptr stackPtr = NULL; /*Р’РєР°Р·С–РІРЅРёРє РЅР° РІРµСЂС€РёРЅСѓ*/
 	int choice, value;
 	instructions();
 	cout<<"? ";
@@ -62,14 +62,14 @@ void main()
 	int n=0;
 	while (choice !=6) {
 		switch (choice) {
-		case 1: /*Занесення значення в стек*/ 
+		case 1: /*Р—Р°РЅРµСЃРµРЅРЅСЏ Р·РЅР°С‡РµРЅРЅСЏ РІ СЃС‚РµРє*/ 
 			cout<<"Enter an integer: ";
 			cin>> value;
 			p (&stackPtr, value);
 			print (stackPtr);
 			n++;
 			break;
-		case 2: /*Видалення значення із стеку*/
+		case 2: /*Р’РёРґР°Р»РµРЅРЅСЏ Р·РЅР°С‡РµРЅРЅСЏ С–Р· СЃС‚РµРєСѓ*/
 			if (!empty(stackPtr))
 				cout<<"The popped value is "<< pop(&stackPtr)<<endl; ;
 			print(stackPtr);
@@ -79,7 +79,7 @@ void main()
 			if (!empty(stackPtr))
 				cout<<"The peak "<< peak(&stackPtr)<<endl; ;
 			break;
-			case 4: /*Видалення значення із стеку*/
+			case 4: /*Р’РёРґР°Р»РµРЅРЅСЏ Р·РЅР°С‡РµРЅРЅСЏ С–Р· СЃС‚РµРєСѓ*/
 			del(&stackPtr);
 			print(stackPtr);
 			break;
