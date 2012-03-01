@@ -12,31 +12,31 @@ extern "C" __declspec(dllexport) void instructions(void)
 		"4 delete all elements\n"
 		"5 invert\n"
 		"6 end of the program\n"; }
-/*Занесення нового значення у вершинку стеку*/
+/*Р—Р°РЅРµСЃРµРЅРЅСЏ РЅРѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРЅСЏ Сѓ РІРµСЂС€РёРЅРєСѓ СЃС‚РµРєСѓ*/
 extern "C" __declspec(dllexport) void push (stack_ptr *topPtr, int info)
 {	
 	stack_ptr newPtr;
-	newPtr =new node;//виведення пам'яті для вузла
+	newPtr =new node;//РІРёРІРµРґРµРЅРЅСЏ РїР°Рј'СЏС‚С– РґР»СЏ РІСѓР·Р»Р°
 	if (newPtr != NULL) {
-		newPtr->data = info;// нове значення поступає на вершину стеку
-		newPtr->nextPtr = *topPtr;//newPtr показує на попереднє значення
-		*topPtr = newPtr;// тепер *topPtr показує на нове значення
+		newPtr->data = info;// РЅРѕРІРµ Р·РЅР°С‡РµРЅРЅСЏ РїРѕСЃС‚СѓРїР°С” РЅР° РІРµСЂС€РёРЅСѓ СЃС‚РµРєСѓ
+		newPtr->nextPtr = *topPtr;//newPtr РїРѕРєР°Р·СѓС” РЅР° РїРѕРїРµСЂРµРґРЅС” Р·РЅР°С‡РµРЅРЅСЏ
+		*topPtr = newPtr;// С‚РµРїРµСЂ *topPtr РїРѕРєР°Р·СѓС” РЅР° РЅРѕРІРµ Р·РЅР°С‡РµРЅРЅСЏ
 	} else
 			cout<<info<<" not inserted. No memory available."<<endl; 
 }
-/*Видалення вузла на вершині стеку*/
+/*Р’РёРґР°Р»РµРЅРЅСЏ РІСѓР·Р»Р° РЅР° РІРµСЂС€РёРЅС– СЃС‚РµРєСѓ*/
 extern "C" __declspec(dllexport) int pop(stack_ptr *topPtr)
 {
 	stack_ptr tempPtr;
 	int popValue;
-	tempPtr = *topPtr;//дані про зміннц що треба видалити(значення, адреса)
-	popValue = (*topPtr)->data;// значення що потрібно видалити
-	*topPtr = (*topPtr)->nextPtr;// вершина переходить у наступне значення
-	delete tempPtr; //видалення вершини
+	tempPtr = *topPtr;//РґР°РЅС– РїСЂРѕ Р·РјС–РЅРЅС† С‰Рѕ С‚СЂРµР±Р° РІРёРґР°Р»РёС‚Рё(Р·РЅР°С‡РµРЅРЅСЏ, Р°РґСЂРµСЃР°)
+	popValue = (*topPtr)->data;// Р·РЅР°С‡РµРЅРЅСЏ С‰Рѕ РїРѕС‚СЂС–Р±РЅРѕ РІРёРґР°Р»РёС‚Рё
+	*topPtr = (*topPtr)->nextPtr;// РІРµСЂС€РёРЅР° РїРµСЂРµС…РѕРґРёС‚СЊ Сѓ РЅР°СЃС‚СѓРїРЅРµ Р·РЅР°С‡РµРЅРЅСЏ
+	delete tempPtr; //РІРёРґР°Р»РµРЅРЅСЏ РІРµСЂС€РёРЅРё
 	tempPtr=NULL;
 	return popValue; 
 }
-/*Друк стеку*/
+/*Р”СЂСѓРє СЃС‚РµРєСѓ*/
 extern "C" __declspec(dllexport) void printStack(stack_ptr currentPtr)
 { 	
 	if (currentPtr == NULL)
@@ -50,15 +50,15 @@ extern "C" __declspec(dllexport) void printStack(stack_ptr currentPtr)
 		cout<<"NULL"<<endl<<endl; 
 	} 
 }
-/*Перевірка чи пустий стек*/
+/*РџРµСЂРµРІС–СЂРєР° С‡Рё РїСѓСЃС‚РёР№ СЃС‚РµРє*/
 extern "C" __declspec(dllexport) int isEmpty(stack_ptr topPtr)
 {	
-	return topPtr == NULL;//якщо вершина показує на 0 значить стек пустий
+	return topPtr == NULL;//СЏРєС‰Рѕ РІРµСЂС€РёРЅР° РїРѕРєР°Р·СѓС” РЅР° 0 Р·РЅР°С‡РёС‚СЊ СЃС‚РµРє РїСѓСЃС‚РёР№
 }
 extern "C" __declspec(dllexport)int peak(stack_ptr *topPtr){
 	stack_ptr tempPtr;
 	int peak;
-	tempPtr = *topPtr;//дані про зміннц що треба видалити(значення, адреса)
+	tempPtr = *topPtr;//РґР°РЅС– РїСЂРѕ Р·РјС–РЅРЅС† С‰Рѕ С‚СЂРµР±Р° РІРёРґР°Р»РёС‚Рё(Р·РЅР°С‡РµРЅРЅСЏ, Р°РґСЂРµСЃР°)
 	peak = (*topPtr)->data;
 	return peak;
 }
@@ -67,10 +67,11 @@ extern "C" __declspec(dllexport)void del(stack_ptr *topPtr)
 	stack_ptr tempPtr;
 	int popValue;
 	while(*topPtr!=NULL){
-	tempPtr = *topPtr;//дані про зміннц що треба видалити(значення, адреса)
-	popValue = (*topPtr)->data;// значення що потрібно видалити
-	*topPtr = (*topPtr)->nextPtr;// вершина переходить у наступне значення
-	free(tempPtr); 
+	tempPtr = *topPtr;//РґР°РЅС– РїСЂРѕ Р·РјС–РЅРЅРё С‰Рѕ С‚СЂРµР±Р° РІРёРґР°Р»РёС‚Рё(Р·РЅР°С‡РµРЅРЅСЏ, Р°РґСЂРµСЃР°)
+	popValue = (*topPtr)->data;// Р·РЅР°С‡РµРЅРЅСЏ С‰Рѕ РїРѕС‚СЂС–Р±РЅРѕ РІРёРґР°Р»РёС‚Рё
+	*topPtr = (*topPtr)->nextPtr;// РІРµСЂС€РёРЅР° РїРµСЂРµС…РѕРґРёС‚СЊ Сѓ РЅР°СЃС‚СѓРїРЅРµ Р·РЅР°С‡РµРЅРЅСЏ
+	delete tempPtr;
+	tempPtr=NULL;
 	}//
 
 }
